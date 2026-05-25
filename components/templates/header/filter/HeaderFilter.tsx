@@ -26,20 +26,20 @@ export default function HeaderFilter() {
   }, []);
 
   return (
-    <div className="container my-8">
+    <div className="container my-2 md:my-8">
       <div
         ref={boxRef}
-        className="relative shadow-2xl w-lg mx-auto flex justify-between items-center border border-primary bg-secondary rounded-full">
+        className="relative shadow-2xl md:w-lg mx-auto flex justify-between items-center border border-primary bg-secondary rounded-full">
         <PlaceHeaderFilter setSelected={setSelected} />
         <PeriodTimeFilter setSelected={setSelected} />
         <GuestsFilter setSelected={setSelected} />
         <div
-          className={`absolute top-0 left-1/3 ${selected == "where" ? "-translate-x-full" : selected == "when" ? "translate-x-0" : selected === "who" ? "translate-x-full" : "opacity-0 scale-0"} h-full w-1/3 bg-chart-1 rounded-full border-primary border transition-all duration-300`}
+          className={`absolute top-0 md:left-1/3 ${selected == "where" ? "md:-translate-x-full" : selected == "when" ? "translate-x-0" : selected === "who" ? "md:translate-x-full" : "opacity-0 scale-0"} h-full w-full md:w-1/3 bg-chart-1 rounded-full border-primary border transition-all duration-300`}
         />
         <button
           onClick={() => setSelected("")}
           className={`absolute right-2 top-1/2 -translate-y-1/2
-              h-[85%] rounded-full
+              h-[80%] rounded-full
               bg-linear-300 from-primary to-chart-2
               text-secondary font-medium
               flex items-center justify-center

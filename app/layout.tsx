@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { Changa_One, Jost } from "next/font/google";
+import NavBar from "@/components/templates/header/NavBar";
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const changaOne = Changa_One({
   subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-changa",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jost = Jost({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-jost",
 });
 
 export const metadata: Metadata = {
@@ -28,9 +29,17 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+      className={cn(
+        "h-full",
+        "antialiased",
+        changaOne.variable,
+        jost.variable,
+        "font-sans",
+      )}>
+      <body className="min-h-full flex flex-col">
+        <NavBar />
+        {children}
+      </body>
     </html>
   );
 }
